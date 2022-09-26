@@ -15,6 +15,6 @@ export const useGetNews = () => {
   const { data, isLoading, isFetching } = useQuery("news", getNews, {
     onError
   });
-  let news = data?.data;
+  let news = data;
   return { news, isLoading: isLoading || isFetching };
 };

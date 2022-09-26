@@ -4,6 +4,7 @@ import { useGetNews } from "@/hooks/story";
 
 function Index() {
   const { news, isLoading } = useGetNews();
+  console.log("news", news);
   return (
     <div className="App">
       <div className="container">
