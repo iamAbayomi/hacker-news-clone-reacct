@@ -1,11 +1,7 @@
+import { INewsItem } from "../types";
+
 type props = {
-  headline: {
-    url: string;
-    title: string;
-    score: string;
-    by: string;
-    descendents: string;
-  };
+  headline: INewsItem;
 };
 
 const Headline = ({ headline }: props) => {
@@ -42,7 +38,7 @@ const Headline = ({ headline }: props) => {
           <p>by {headline.by} </p>
           <p>58 minutes ago</p>
           <p>| hide</p>
-          <p>| {headline.descendents} comments</p>
+          <p>| {headline.descendants} comments</p>
         </div>
       </div>
     </div>
