@@ -1,10 +1,11 @@
 import { INewsItem } from "../types";
 
 type props = {
+  newsId: number;
   headline: INewsItem;
 };
 
-const Headline = ({ headline }: props) => {
+const Headline = ({ newsId, headline }: props) => {
   let headlineNo = 1;
 
   const getWebsiteDomain = (url: string) => {
@@ -18,7 +19,7 @@ const Headline = ({ headline }: props) => {
     <div className="headline">
       {}
       <div className="headline-no">
-        <p>{headlineNo++}</p>
+        <p>{newsId}</p>
         <div className="grayarrow" title="upvote"></div>
       </div>
       <div className="headline-content">
