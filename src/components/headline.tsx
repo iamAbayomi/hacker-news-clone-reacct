@@ -1,11 +1,14 @@
-import { INewsItem } from "../types";
-
 type props = {
-  newsId: number;
-  headline: INewsItem;
+  headline: {
+    url: string;
+    title: string;
+    score: string;
+    by: string;
+    descendents: string;
+  };
 };
 
-const Headline = ({ newsId, headline }: props) => {
+const Headline = ({ headline }: props) => {
   let headlineNo = 1;
 
   const getWebsiteDomain = (url: string) => {
@@ -19,7 +22,7 @@ const Headline = ({ newsId, headline }: props) => {
     <div className="headline">
       {}
       <div className="headline-no">
-        <p>{newsId}</p>
+        <p>{headlineNo++}</p>
         <div className="grayarrow" title="upvote"></div>
       </div>
       <div className="headline-content">
@@ -39,7 +42,7 @@ const Headline = ({ newsId, headline }: props) => {
           <p>by {headline.by} </p>
           <p>58 minutes ago</p>
           <p>| hide</p>
-          <p>| {headline.descendants} comments</p>
+          <p>| {headline.descendents} comments</p>
         </div>
       </div>
     </div>
