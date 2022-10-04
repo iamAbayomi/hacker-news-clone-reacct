@@ -1,4 +1,4 @@
-import { INewsItem } from "../types";
+import { INewsItem } from "../../types";
 
 type props = {
   newsId: number;
@@ -19,7 +19,7 @@ const Headline = ({ newsId, headline }: props) => {
     <div className="headline">
       {}
       <div className="headline-no">
-        <p>{newsId}</p>
+        <p>{newsId}.</p>
         <div className="grayarrow" title="upvote"></div>
       </div>
       <div className="headline-content">
