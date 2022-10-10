@@ -1,12 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
 import Footer from "@/components/footer";
 import Headline from "@/components/headline";
-import { useGetNewsItem } from "@/hooks/story";
+import { useGetNewsItem, useGetPaginatedNewsItem } from "@/hooks/story";
 import { Box, Input, Text } from "@chakra-ui/react";
+import { useState } from "react";
 import { INewsItem } from "../types";
 
 function Index() {
-  const { newsItem, isLoading } = useGetNewsItem();
+  const {
+    newsItem,
+    isLoading,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage
+  } = useGetPaginatedNewsItem();
+  function increaseStep() {
+    fetchNextPage();
+  }
   const footerLink = [
     "Guidelines",
     "FAQ",
@@ -16,7 +26,6 @@ function Index() {
     "Legal",
     "Apply to YC"
   ];
-  console.log("newsItem", newsItem, "items");
   return (
     <div className="App">
       <div className="container">
@@ -46,7 +55,14 @@ function Index() {
         </div>
         <div className="lists-of-headline">
           {isLoading ? (
-            <Text>isLoading...</Text>
+            <Text
+              margin={"15px 0px 0px 0px"}
+              //color={"#ff6600"}
+              textAlign={"center"}
+              // fontWeight={"bold"}
+            >
+              isLoading...
+            </Text>
           ) : (
             <Box>
               {newsItem?.map((item: INewsItem, index: number) => (
@@ -55,9 +71,21 @@ function Index() {
             </Box>
           )}
         </div>
-        <Text m={"10px 0px 10px 40px"} fontSize={"14px"} color={"#828282"}>
-          More
-        </Text>
+        {isFetchingNextPage ? (
+          <Text margin={"15px 0px 15px 0px"} textAlign={"center"}>
+            isLoading...
+          </Text>
+        ) : (
+          <Text
+            m={"10px 0px 10px 40px"}
+            onClick={increaseStep}
+            cursor={"pointer"}
+            fontSize={"14px"}
+            color={"#828282"}
+          >
+            More
+          </Text>
+        )}
         <Footer footerLink={footerLink} />
       </div>
     </div>
