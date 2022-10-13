@@ -1,34 +1,49 @@
+import { IFooterData } from "@/types/index";
 import { Input, Box, Text } from "@chakra-ui/react";
+import Link from "next/link";
 
 interface props {
-  footerLink: string[];
+  footerLink: IFooterData[];
 }
 
-function Footer({ footerLink }: props) {
+function Footer({ footerLink: props }: props) {
   return (
     <Box>
       <Box borderTop={"2px solid #ff6600"} />
       <Box maxWidth={"469px"} margin={"10px auto 0px"} pb={"20px"}>
-        <Text fontSize={"15px"} textAlign={"center"} fontWeight={"400"}>
-          Applications are open for YC Winter 2023
-        </Text>
+        <Link href={"https://www.ycombinator.com/apply/"}>
+          <Text
+            cursor={"pointer"}
+            fontSize={"15px"}
+            textAlign={"center"}
+            fontWeight={"400"}
+          >
+            Applications are open for YC Winter 2023
+          </Text>
+        </Link>
+
         <Box display={"flex"} margin={"auto"} alignItems={"center"}>
-          {footerLink.map((item: string, index: number) => (
+          {props.map((item: IFooterData, index: number) => (
             <Box
               display={"flex"}
               alignItems={"center"}
               key={index}
               // border={"1px solid"}
             >
-              <Text fontSize={"11px"} margin={"10px"}>
-                {item}
-              </Text>
+              <Link href={item.link}>
+                <Text cursor={"pointer"} fontSize={"11px"} margin={"10px"}>
+                  {item.text}
+                </Text>
+              </Link>
+
               <Box borderRight={"1px solid"} height={"13px"} />
             </Box>
           ))}
-          <Text margin={"10px"} fontSize={"11px"}>
-            Contact
-          </Text>
+          <Link href={"hn@ycombinator.com"}>
+            <Text margin={"10px"} cursor={"pointer"} fontSize={"11px"}>
+              Contact
+            </Text>
+          </Link>
         </Box>
         <Box
           maxWidth={"200px"}

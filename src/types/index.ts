@@ -9,3 +9,8 @@ export type INewsItem = {
     type: string
     url: string
 }
+
+export interface IFooterData {
+    text: string,
+    link: string
+}

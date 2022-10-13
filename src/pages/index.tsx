@@ -2,6 +2,7 @@
 import Footer from "@/components/footer";
 import Headline from "@/components/headline";
 import { useGetNewsItem, useGetPaginatedNewsItem } from "@/hooks/story";
+import { footerData } from "@/utils/dummydate";
 import { Box, Input, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { INewsItem } from "../types";
@@ -55,12 +56,7 @@ function Index() {
         </div>
         <div className="lists-of-headline">
           {isLoading ? (
-            <Text
-              margin={"15px 0px 0px 0px"}
-              //color={"#ff6600"}
-              textAlign={"center"}
-              // fontWeight={"bold"}
-            >
+            <Text margin={"15px 0px 0px 0px"} textAlign={"center"}>
               isLoading...
             </Text>
           ) : (
@@ -86,7 +82,7 @@ function Index() {
             More
           </Text>
         )}
-        <Footer footerLink={footerLink} />
+        <Footer footerLink={footerData} />
       </div>
     </div>
   );
