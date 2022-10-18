@@ -17,6 +17,10 @@ a {
   box-sizing: border-box;
 }
 
+.pointer{
+  cursor: pointer;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -26,3 +30,4 @@ a {
     background: black;
   }
 }
+

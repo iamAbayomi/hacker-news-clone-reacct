@@ -16,7 +16,7 @@ const Headline = ({ newsId, headline }: props) => {
     return "";
   };
   return (
-    <div className="headline">
+    <div className="headline pointer">
       {}
       <div className="headline-no">
         <p>{newsId}.</p>

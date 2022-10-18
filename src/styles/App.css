@@ -34,6 +34,10 @@
   border-color:white;
 }
 
+.header-text-section{
+  cursor: pointer;
+}
+
 .header-text{
   font-weight: 900;
   font-size: 14px;
@@ -49,6 +53,7 @@
   font-size: 14px;
   font-weight: 450;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .login-section p{

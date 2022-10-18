@@ -10,3 +10,7 @@ export const _errorHandler = (err: unknown) => {
     : "";
   return toast.error(message);
 };
+
+const onError = (err: any) => {
+  _errorHandler(err);
+};
