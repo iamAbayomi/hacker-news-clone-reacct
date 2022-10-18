@@ -41,7 +41,10 @@ const AppLayout = ({
                 <img alt="gif" className="header-image" src="y18.gif" />
               </div>
               <div className="header-text-section">
-                <div className="header-text-content">
+                <div
+                  className="header-text-content"
+                  onClick={() => goToPage("/")}
+                >
                   <p className="header-text">Hackers News</p>
                 </div>
                 <div className="header-menu">

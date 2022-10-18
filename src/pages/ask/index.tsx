@@ -1,16 +1,22 @@
+import { useGetCustomStories } from "@/hooks/ask";
 import { Box } from "@chakra-ui/react";
 import AppLayout from "layout";
 import dynamic from "next/dynamic";
 
 const Index = () => {
+  const {
+    isLoading,
+    customStories,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage
+  } = useGetCustomStories("askstories", "ask");
   return (
     <AppLayout
-      isLoading={false}
-      newsItems={[]}
-      isFetchingNextPage={false}
-      fetchNextPage={function (): void {
-        throw new Error("Function not implemented.");
-      }}
+      isLoading={isLoading}
+      newsItems={customStories}
+      isFetchingNextPage={isFetchingNextPage}
+      fetchNextPage={fetchNextPage}
     ></AppLayout>
   );
 };
